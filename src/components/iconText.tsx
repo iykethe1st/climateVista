@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StatusBar, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Feather} from '@expo/vector-icons';
 
@@ -8,15 +8,20 @@ export default function IconText({
   bodyText,
   bodyTextStyle,
 }) {
+  const {container, textTheme} = styles;
+
   return (
-    <View>
+    <View style={container}>
       <Feather name={iconName} size={50} color={iconColor} />
-      <Text style={[styles.textTheme, bodyTextStyle]}>{bodyText}</Text>
+      <Text style={[textTheme, bodyTextStyle]}>{bodyText}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+  },
   textTheme: {
     fontWeight: 'bold',
   },

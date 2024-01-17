@@ -9,38 +9,51 @@ import {
 import React from 'react';
 import {Feather} from '@expo/vector-icons';
 import {AntDesign} from '@expo/vector-icons';
-import IconText from '../components/iconText';
+import IconText from '../components/IconText';
 
 export default function City() {
+  const {
+    container,
+    imageLayout,
+    cityName,
+    cityText,
+    countryName,
+    populationWrapper,
+    populationText,
+    riseSetWrapper,
+    riseSetText,
+    rowLayout,
+  } = styles;
+
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={container}>
       <ImageBackground
         source={require('../../assets/hd-city.jpeg')}
-        style={styles.imageLayout}>
-        <Text style={[styles.cityName, styles.cityText]}>Chicago</Text>
-        <Text style={[styles.countryName, styles.cityText]}>USA</Text>
+        style={imageLayout}>
+        <Text style={[cityName, cityText]}>Chicago</Text>
+        <Text style={[countryName, cityText]}>USA</Text>
         {/* <Text>City</Text> */}
-        <View style={styles.populationWrapper}>
+        <View style={[populationWrapper, rowLayout]}>
           <IconText
             iconName={'user'}
             iconColor={'black'}
             bodyText={'8000'}
-            bodyTextStyle={styles.populationText}
+            bodyTextStyle={populationText}
           />
         </View>
 
-        <View style={styles.riseSetWrapper}>
+        <View style={[riseSetWrapper, rowLayout]}>
           <IconText
             iconName={'sunrise'}
             iconColor={'white'}
             bodyText={'10:46:58am'}
-            bodyTextStyle={styles.riseSetText}
+            bodyTextStyle={riseSetText}
           />
           <IconText
             iconName={'sunset'}
             iconColor={'white'}
             bodyText={'17:51:28pm'}
-            bodyTextStyle={styles.riseSetText}
+            bodyTextStyle={riseSetText}
           />
         </View>
       </ImageBackground>
@@ -69,8 +82,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   populationWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'center',
     marginTop: 30,
   },
@@ -80,13 +91,15 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   riseSetWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-around',
     marginTop: 30,
   },
   riseSetText: {
     fontSize: 20,
     color: 'white',
+  },
+  rowLayout: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
