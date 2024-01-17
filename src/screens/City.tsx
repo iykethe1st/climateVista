@@ -30,10 +30,18 @@ export default function City() {
         </View>
 
         <View style={styles.riseSetWrapper}>
-          <Feather name="sunrise" size={50} color="white" />
-          <Text style={styles.riseSetText}>10:46:58am</Text>
-          <Feather name="sunset" size={50} color="white" />
-          <Text style={styles.riseSetText}>17:43:12pm</Text>
+          <IconText
+            iconName={'sunrise'}
+            iconColor={'white'}
+            bodyText={'10:46:58am'}
+            bodyTextStyle={styles.riseSetText}
+          />
+          <IconText
+            iconName={'sunset'}
+            iconColor={'white'}
+            bodyText={'17:51:28pm'}
+            bodyTextStyle={styles.riseSetText}
+          />
         </View>
       </ImageBackground>
     </SafeAreaView>
