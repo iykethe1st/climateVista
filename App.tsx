@@ -3,14 +3,17 @@ import React from 'react';
 import CurrentWeather from './src/screens/CurrentWeather';
 import UpcomingWeather from './src/screens/UpcomingWeather';
 import City from './src/screens/City';
+import {NavigationContainer} from '@react-navigation/native';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <CurrentWeather />
-      {/* <UpcomingWeather /> */}
-      {/* <City /> */}
-    </View>
+    <NavigationContainer>
+      <View style={styles.container}>
+        <CurrentWeather />
+        {/* <UpcomingWeather /> */}
+        {/* <City /> */}
+      </View>
+    </NavigationContainer>
   );
 }
 
