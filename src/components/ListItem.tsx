@@ -3,12 +3,14 @@ import React from 'react';
 import {Feather} from '@expo/vector-icons';
 
 const ListItem = ({dt_txt, min, max, condition}) => {
+  const {item, temp, date} = styles;
+
   return (
-    <View style={styles.item}>
+    <View style={item}>
       <Feather name={'sun'} size={50} color={'#737676'} />
-      <Text style={styles.date}>{dt_txt}</Text>
-      <Text style={styles.temp}>{min}</Text>
-      <Text style={styles.temp}>{max}</Text>
+      <Text style={date}>{dt_txt}</Text>
+      <Text style={temp}>{min}</Text>
+      <Text style={temp}>{max}</Text>
       {/* <Text>{condition}</Text> */}
     </View>
   );

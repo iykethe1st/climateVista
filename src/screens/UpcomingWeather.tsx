@@ -5,7 +5,6 @@ import {
   StatusBar,
   StyleSheet,
   Text,
-  View,
 } from 'react-native';
 import React from 'react';
 import ListItem from '../components/ListItem';
@@ -76,11 +75,14 @@ const UpcomingWeather = () => {
       condition={item.weather[0].main}
     />
   );
+
+  const {container, image} = styles;
+
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={container}>
       <ImageBackground
         source={require('../../assets/hd-clouds.jpeg')}
-        style={styles.image}>
+        style={image}>
         <Text>UpcomingWeather</Text>
 
         <FlatList
