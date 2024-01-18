@@ -10,8 +10,9 @@ import React from 'react';
 import {Feather} from '@expo/vector-icons';
 import {AntDesign} from '@expo/vector-icons';
 import IconText from '../components/IconText';
+import moment from 'moment';
 
-export default function City() {
+export default function City({cityData}) {
   const {
     container,
     imageLayout,
@@ -25,19 +26,21 @@ export default function City() {
     rowLayout,
   } = styles;
 
+  const {name, country, population, sunrise, sunset} = cityData;
+
   return (
     <SafeAreaView style={container}>
       <ImageBackground
         source={require('../../assets/hd-city.jpeg')}
         style={imageLayout}>
-        <Text style={[cityName, cityText]}>Chicago</Text>
-        <Text style={[countryName, cityText]}>USA</Text>
+        <Text style={[cityName, cityText]}>{name}</Text>
+        <Text style={[countryName, cityText]}>{country}</Text>
         {/* <Text>City</Text> */}
         <View style={[populationWrapper, rowLayout]}>
           <IconText
             iconName={'user'}
             iconColor={'black'}
-            bodyText={'8000'}
+            bodyText={`Population: ${population}`}
             bodyTextStyle={populationText}
           />
         </View>
@@ -46,13 +49,13 @@ export default function City() {
           <IconText
             iconName={'sunrise'}
             iconColor={'white'}
-            bodyText={'10:46:58am'}
+            bodyText={moment(sunrise).format('h:mm:ss a')}
             bodyTextStyle={riseSetText}
           />
           <IconText
             iconName={'sunset'}
             iconColor={'white'}
-            bodyText={'17:51:28pm'}
+            bodyText={moment(sunset).format('h:mm:ss a')}
             bodyTextStyle={riseSetText}
           />
         </View>

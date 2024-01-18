@@ -12,7 +12,7 @@ export const useGetWeather = () => {
 
   const fetchWeatherData = async () => {
     try {
-      const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+      const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
       const response = await axios.get(url);
       setWeather(response.data);
     } catch (error) {

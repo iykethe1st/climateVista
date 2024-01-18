@@ -28,7 +28,6 @@ export default function Tabs({weather}) {
       }}>
       <Tab.Screen
         name="Current"
-        component={CurrentWeather}
         options={{
           tabBarIcon: ({focused}) => (
             <Feather
@@ -37,11 +36,12 @@ export default function Tabs({weather}) {
               color={focused ? 'tomato' : 'black'}
             />
           ),
-        }}
-      />
+        }}>
+        {() => <CurrentWeather weatherData={weather.list[0]} />}
+      </Tab.Screen>
+
       <Tab.Screen
         name="Upcoming"
-        component={UpcomingWeather}
         options={{
           tabBarIcon: ({focused}) => (
             <Feather
@@ -50,11 +50,12 @@ export default function Tabs({weather}) {
               color={focused ? 'tomato' : 'black'}
             />
           ),
-        }}
-      />
+        }}>
+        {() => <UpcomingWeather weatherData={weather.list} />}
+      </Tab.Screen>
+
       <Tab.Screen
         name="City"
-        component={City}
         options={{
           tabBarIcon: ({focused}) => (
             <Feather
@@ -63,8 +64,9 @@ export default function Tabs({weather}) {
               color={focused ? 'tomato' : 'black'}
             />
           ),
-        }}
-      />
+        }}>
+        {() => <City cityData={weather.city} />}
+      </Tab.Screen>
     </Tab.Navigator>
   );
 }
