@@ -8,7 +8,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
 
-export default function Tabs() {
+export default function Tabs({weather}) {
   return (
     <Tab.Navigator
       screenOptions={{
